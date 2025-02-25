@@ -1,7 +1,7 @@
 {
   "name": "backend-tiendita",
   "version": "1.0.0",
-  "description": "Tiendita de cositas",
+  "description": "Tiendita de Don Rufino",
   "homepage": "https://github.com/Leon-Supr/backend-tiendita#readme",
   "bugs": {
     "url": "https://github.com/Leon-Supr/backend-tiendita/issues"
@@ -22,6 +22,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "knex": "^3.1.0"
+    "knex": "^3.1.0",
+    "pg": "^8.13.3"
   }
 }
