@@ -4,7 +4,7 @@
  */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('sales').del();
+  await knex.raw('TRUNCATE sales RESTART IDENTITY CASCADE')
 
   // Inserts seed entries
   await knex('sales').insert([

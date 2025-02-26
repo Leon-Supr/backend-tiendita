@@ -4,8 +4,7 @@
  */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('sale_details').del();
-
+  await knex.raw('TRUNCATE sale_details RESTART IDENTITY CASCADE')
   // Inserts seed entries
   await knex('sale_details').insert([
     { fk_sale_id: 1, fk_product_id: 1, quantity: 2, subtotal: 51.00 },
