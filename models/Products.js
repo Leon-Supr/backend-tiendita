@@ -3,4 +3,17 @@
 
 const knex = require('../config')
 
-// De config exportamos Knex con la variable de entorno
+// CRUD
+
+// Create
+const create = (bodyProduct) => {
+    return knex
+        .insert(bodyProduct)
+        .into('products')
+        .returning('*')
+}
+
+// Exportar las funciones que se crearon
+module.exports = {
+    create
+}
