@@ -24,6 +24,15 @@ const findOneProduct = (req, res) => {
     ModelProduct.findOne(req.params.productId).then(product => {
         res.status(200).json(product)
     }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
+// Update
+const updateProduct = (req, res) => {
+    ModelProduct.update(req.params.productId, req.body).then(product => {
+        res.status(200).json(product)
+    }).catch(error =>{
         res.status(400).json({message: error.message})
     })
 }
@@ -31,5 +40,6 @@ const findOneProduct = (req, res) => {
 module.exports = {
     createProduct,
     findAllProducts,
-    findOneProduct
+    findOneProduct,
+    updateProduct
 }

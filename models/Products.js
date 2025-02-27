@@ -3,7 +3,7 @@
 
 const knex = require('../config')
 
-// CRUD
+// CRUD base
 
 // Create
 const create = (bodyProduct) => {
@@ -29,9 +29,19 @@ const findOne = (productId) => {
         .where('active', true)
 }
 
+// Update
+const update = (productId, bodyToUpdate) => {
+    return knex
+        .update(bodyToUpdate)
+        .from('products')
+        .where('product_id', productId)
+        .returning('*')
+}
+
 // Exportar las funciones que se crearon
 module.exports = {
     create,
     findAll,
-    findOne
+    findOne,
+    update
 }
