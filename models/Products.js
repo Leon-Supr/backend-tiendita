@@ -13,7 +13,25 @@ const create = (bodyProduct) => {
         .returning('*')
 }
 
+// Read
+const findAll = () => {
+    return knex
+        .select('*')
+        .from('products')
+        .where('active', true)
+}
+
+const findOne = (productId) => {
+    return knex
+        .select('*')
+        .from('products')
+        .where('product_id', productId) //Donde tenga el id
+        .where('active', true)
+}
+
 // Exportar las funciones que se crearon
 module.exports = {
-    create
+    create,
+    findAll,
+    findOne
 }
