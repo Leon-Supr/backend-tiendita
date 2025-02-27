@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 
 //#4 Crear las rutas de la aplicación
-//app.use('/api/v1', productRoutes)
+app.use('/api/v1', productRoutes)
 
 //#5 Levantar el servidor
 app.listen(PORT, ()=>{
