@@ -3,6 +3,7 @@
 //#1 Importar express
 const express = require('express')
 const productRoutes = require('./routes/productRoutes')
+const customerRoutes = require('./routes/customersRoutes')
 
 const PORT = process.env.PORT || 3000
 
@@ -14,6 +15,7 @@ app.use(express.json())
 
 //#4 Crear las rutas de la aplicación
 app.use('/api/v1', productRoutes)
+app.use('/api/v1', customerRoutes)
 
 //#5 Levantar el servidor
 app.listen(PORT, ()=>{
