@@ -37,10 +37,18 @@ const softDelete = (customerId) => {
         .where('customer_id', customerId)
 }
 
+const destroy = (customerId) => {
+    return knex
+        .delete()
+        .from('customers')
+        .where('customer_id', customerId)
+}
+
 module.exports = {
     create,
     findAll,
     findOne,
     update,
-    softDelete
+    softDelete,
+    destroy
 }

@@ -40,10 +40,19 @@ const softDeleteCustomer = (req, res) => {
     })
 }
 
+const destroyCustomer = (req, res) => {
+    ModelCustomer.destroy(req.params.customerId).then(customer => {
+        res.status(204).json(customer)
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
 module.exports = {
     createCustomer,
     findAllCustomers,
     findOneCustomer,
     updateCustomer,
-    softDeleteCustomer
+    softDeleteCustomer,
+    destroyCustomer
 }
