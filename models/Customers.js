@@ -30,9 +30,17 @@ const update = (customerId, bodyToUpdate) => {
         .returning('*')
 }
 
+const softDelete = (customerId) => {
+    return knex
+        .update({ active: false })
+        .from('customers')
+        .where('customer_id', customerId)
+}
+
 module.exports = {
     create,
     findAll,
     findOne,
-    update
+    update,
+    softDelete
 }
