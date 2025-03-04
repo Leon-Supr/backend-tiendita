@@ -38,10 +38,28 @@ const update = (productId, bodyToUpdate) => {
         .returning('*')
 }
 
+//Soft delete
+const softDelete = (productId) => {
+    return knex
+        .update({ active: false })
+        .from('products')
+        .where('product_id', productId)
+}
+
+//Hard delete
+const destroy = (productId) => {
+    return knex
+        .delete()
+        .from('products')
+        .where('product_id', productId)
+}
+
 // Exportar las funciones que se crearon
 module.exports = {
     create,
     findAll,
     findOne,
-    update
+    update,
+    softDelete,
+    destroy
 }

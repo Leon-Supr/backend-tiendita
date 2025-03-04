@@ -32,8 +32,26 @@ const findOneProduct = (req, res) => {
 const updateProduct = (req, res) => {
     ModelProduct.update(req.params.productId, req.body).then(product => {
         res.status(200).json(product)
-    }).catch(error =>{
-        res.status(400).json({message: error.message})
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
+//Soft delete
+const softDeleteProduct = (req, res) => {
+    ModelProduct.softDelete(req.params.productId).then(product => {
+        res.status(204).json(product)
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
+//Hard delete
+const destroyProduct = (req, res) => {
+    ModelProduct.destroy(req.params.productId).then(product => {
+        res.status(200).json(product)
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
     })
 }
 
@@ -41,5 +59,7 @@ module.exports = {
     createProduct,
     findAllProducts,
     findOneProduct,
-    updateProduct
+    updateProduct,
+    softDeleteProduct,
+    destroyProduct
 }
