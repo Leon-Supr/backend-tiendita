@@ -5,6 +5,7 @@ const express = require('express')
 const productRoutes = require('./routes/productRoutes')
 const customerRoutes = require('./routes/customersRoutes')
 const salesRoutes = require('./routes/salesRoutes')
+const saleDetailsRoutes = require('./routes/saleDetailsRoutes')
 
 const PORT = process.env.PORT || 3000
 
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use('/api/v1', productRoutes)
 app.use('/api/v1', customerRoutes)
 app.use('/api/v1', salesRoutes)
+app.use('/api/v1', saleDetailsRoutes)
 
 //#5 Levantar el servidor
 app.listen(PORT, ()=>{
