@@ -13,7 +13,7 @@ const findOne = (saleId) => {
         .select('*')
         .from('sales')
         .where('sale_id', saleId)
-        .where('active', active)
+        .where('active', true)
         .returning('*')
 }
 
@@ -21,27 +21,34 @@ const findAll = () => {
     return knex
         .select('*')
         .from('sales')
-        .where('sale_id', saleId)
-        .where('active', active)
+        .where('active', true)
         .returning('*')
 }
 
-const update = (bodySales, saleId) => {
+const update = (saleId, bodyToUpdate) => {
     return knex
-        .update(bodySales)
+        .update(bodyToUpdate)
         .from('sales')
         .where('sale_id', saleId)
         .returning('*')
 }
 
-const softDelete = (saleId) => {
+const softDelete = async (saleId) => {
+    await knex
+        .update({ active: false })
+        .from('sale_details')
+        .where('fk_sale_id', saleId)
     return knex
         .update({ active: false })
         .from('sales')
         .where('sale_id', saleId)
 }
 
-const destroy = (saleId) => {
+const destroy = async (saleId) => {
+    await knex
+        .delete()
+        .from('sale_details')
+        .where('fk_sale_id', saleId)
     return knex
         .delete()
         .from('sales')

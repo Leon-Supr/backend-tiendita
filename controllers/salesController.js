@@ -25,8 +25,8 @@ const findAllSales = (req, res) => {
 }
 
 const updateSale = (req, res) => {
-    ModelSale.update(req.params.body, req.params.saleId).then(sale => {
-        res.status(201).json(sale)
+    ModelSale.update(req.params.saleId, req.body).then(sale => {
+        res.status(200).json(sale)
     }).catch(error => {
         res.status(400).json({ message: error.message })
     })

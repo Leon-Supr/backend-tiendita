@@ -8,7 +8,7 @@ exports.up = function (knex) {
             return knex.schema.createTable('sales', function (table) {
                 table.increments('sale_id').primary().unique()
                 table.timestamp('created_at').defaultTo(knex.fn.now())
-                table.integer('fk_customer').unsigned().references('customers.customer_id')
+                table.integer('fk_customer_id').unsigned().references('customers.customer_id')
                 table.boolean('active').notNullable().defaultTo(true)
             })
         }

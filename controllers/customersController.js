@@ -4,7 +4,7 @@ const createCustomer = (req, res) => {
     ModelCustomer.create(req.body).then(customer => {
         res.status(201).json(customer)
     }).catch(error => {
-        res.status(400).json({ message: erro.message })
+        res.status(400).json({ message: error.message })
     })
 }
 
