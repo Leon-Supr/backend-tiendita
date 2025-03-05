@@ -32,6 +32,23 @@ const create = async (saleDetailsBody) => {
     }
 };
 
+const findAll = () => {
+    return knex
+    .select('*')
+    .from('sale_details')
+    .where('active', true)
+}
+
+const findOne = (saleDetailsId) => {
+    return knex
+    .select('*')
+    .from('sale_details')
+    .where('active', true)
+    .where('sale_details_id', saleDetailsId)
+}
+
 module.exports = {
-    create
+    create,
+    findAll,
+    findOne
 };
