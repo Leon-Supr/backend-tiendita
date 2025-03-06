@@ -82,7 +82,7 @@ This is a REST API backend built with Node.js, Knex.js, and PostgreSQL. It suppo
 ```
 
 ## 📸 Screenshots
-### 🔹 **Class Diagram** API requests (GET, POST, PUT, DELETE)
+### 🔹 **Class Diagram**
 ![](screenshots/ClassDiagram.jpeg) 
 
 ### 🔹 **Insomnia** API requests (GET, POST, PUT, DELETE)
