@@ -1,4 +1,4 @@
-# Sales API - Backend
+# Tiendita Don Rufino API v1 - Backend
 
 This is a REST API backend built with Node.js, Knex.js, and PostgreSQL. It supports CRUD operations and automatic subtotal calculation in `sale_details`.
 
