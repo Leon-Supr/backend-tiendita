@@ -32,9 +32,27 @@ const updateSaleDetails = (req, res) => {
     })
 }
 
+const softDeleteSaleDetails = (req, res) => {
+    ModelSaleDetails.softDelete(req.params.saleDetailsId).then(saleDetails => {
+        res.status(204).json(saleDetails)
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
+const destroySaleDetails = (req, res) => {
+    ModelSaleDetails.destroy(req.params.saleDetailsId).then(saleDetails => {
+        res.status(200).json(saleDetails)
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
 module.exports = {
     createSaleDetails,
     findAllSaleDetails,
     findOneSaleDetails,
-    updateSaleDetails
+    updateSaleDetails,
+    softDeleteSaleDetails,
+    destroySaleDetails
 }

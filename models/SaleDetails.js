@@ -34,29 +34,45 @@ const create = async (saleDetailsBody) => {
 
 const findAll = () => {
     return knex
-    .select('*')
-    .from('sale_details')
-    .where('active', true)
+        .select('*')
+        .from('sale_details')
+        .where('active', true)
 }
 
 const findOne = (saleDetailsId) => {
     return knex
-    .select('*')
-    .from('sale_details')
-    .where('active', true)
-    .where('sale_details_id', saleDetailsId)
+        .select('*')
+        .from('sale_details')
+        .where('active', true)
+        .where('sale_details_id', saleDetailsId)
 }
 
 const update = (saleDetailsId, bodyToUpdate) => {
     return knex
-    .update(bodyToUpdate)
-    .from('sale_details')
-    .where('sale_details_id', saleDetailsId)
+        .update(bodyToUpdate)
+        .from('sale_details')
+        .where('sale_details_id', saleDetailsId)
+}
+
+const softDelete = (saleDetailsId) => {
+    return knex
+        .update({ active: false })
+        .from('sale_details')
+        .where('sale_details_id', saleDetailsId)
+}
+
+const destroy = (saleDetailsId) => {
+    return knex
+        .delete()
+        .from('sale_details')
+        .where('sale_details_id', saleDetailsId)
 }
 
 module.exports = {
     create,
     findAll,
-    findOne, 
-    update
+    findOne,
+    update,
+    softDelete,
+    destroy
 };
