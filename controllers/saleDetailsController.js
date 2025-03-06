@@ -24,8 +24,17 @@ const findOneSaleDetails = (req, res) => {
     })
 }
 
+const updateSaleDetails = (req, res) => {
+    ModelSaleDetails.update(req.params.saleDetailsId, req.body).then(saleDetails => {
+        res.status(200).json(saleDetails)
+    }).catch(error => {
+        res.status(400).json({ message: error.message })
+    })
+}
+
 module.exports = {
     createSaleDetails,
     findAllSaleDetails,
-    findOneSaleDetails
+    findOneSaleDetails,
+    updateSaleDetails
 }

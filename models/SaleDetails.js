@@ -47,8 +47,16 @@ const findOne = (saleDetailsId) => {
     .where('sale_details_id', saleDetailsId)
 }
 
+const update = (saleDetailsId, bodyToUpdate) => {
+    return knex
+    .update(bodyToUpdate)
+    .from('sale_details')
+    .where('sale_details_id', saleDetailsId)
+}
+
 module.exports = {
     create,
     findAll,
-    findOne
+    findOne, 
+    update
 };
