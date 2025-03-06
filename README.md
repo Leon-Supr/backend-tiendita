@@ -66,7 +66,7 @@ This is a REST API backend built with Node.js, Knex.js, and PostgreSQL. It suppo
  }
 ]
 ```
-#### 🔹 **Response (JSON)**
+#### 🔹 **Response (JSON) (Product price is 28.5, automatic calc when created)**
 ```json
 [
  {
@@ -74,7 +74,7 @@ This is a REST API backend built with Node.js, Knex.js, and PostgreSQL. It suppo
   "fk_sale_id": 12,
   "fk_product_id": 1,
   "quantity": 10,
-  "subtotal": "285.00", //Product price is 28.5, automatic calc when created
+  "subtotal": "285.00",
   "created_at": "2025-03-06T04:33:54.759Z",
   "active": true
  }
@@ -82,6 +82,9 @@ This is a REST API backend built with Node.js, Knex.js, and PostgreSQL. It suppo
 ```
 
 ## 📸 Screenshots
+### 🔹 **Class Diagram** API requests (GET, POST, PUT, DELETE)
+![](screenshots/ClassDiagram.jpeg) 
+
 ### 🔹 **Insomnia** API requests (GET, POST, PUT, DELETE)
 - (GET) Find all sales
 ![](screenshots/GET_Sale.jpeg) 
